@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   end
   def create
     @user=User.new(user_params)
-   @user.save
-    
+    if @user.save
+      redirect_to @user
+    end
+  end
+  def show
+    @user=User.find_by(id: params[:id])
   end
   private
   def user_params
