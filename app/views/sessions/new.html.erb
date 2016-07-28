@@ -4,6 +4,10 @@
     <%= f.text_field :name %>
     <%= f.label :password %>
     <%= f.password_field :password %>
-    <%= f.submit "Log in", class: "button" %>
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+    <% end %>
+<%= f.submit "Log in", class: "button" %>
 <% end %>
 <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
