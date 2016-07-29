@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
 
   resources :users
-  resources :lists
+  resources :lists do
+    resources :todo_items
+  end
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
