@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   get'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'
 
-resources :users
-get 'login' => 'sessions#new'
-post 'login' => 'sessions#create'
-delete 'logout' => 'sessions#destroy'
-resources :account_activations, only: [:edit]
-resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :users
+  resources :lists
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
