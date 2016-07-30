@@ -9,6 +9,12 @@ class TodoItemsController < ApplicationController
     @todo_item.destroy
     redirect_to @list
   end
+  def complete
+    @todo_item = @list.todo_items.find(params[:id])
+    @todo_item.update_attribute(:completed_at, Time.now)
+    redirect_to @list
+    flash[:notice] = "Item completed"
+  end
 
   private
   def set_list
