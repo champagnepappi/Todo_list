@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :lists do
-    resources :todo_items
+    resources :todo_items do
+      member do
+        patch :complete
+      end
+    end
   end
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
