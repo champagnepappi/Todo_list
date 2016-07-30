@@ -1,8 +1,12 @@
 class TodoItemsController < ApplicationController
   before_action :set_list
-
   def create
     @todo_item = @list.todo_items.create(todo_item_params)
+    redirect_to @list
+  end
+  def destroy
+    @todo_item = @list.todo_items.find(params[:id])
+    @todo_item.destroy
     redirect_to @list
   end
 
@@ -11,6 +15,6 @@ class TodoItemsController < ApplicationController
     @list = List.find(params[:list_id])
   end
   def todo_item_params
-    params.require[:todo_item].permit(:content)
+    params[:todo_item].permit(:content)
   end
 end
