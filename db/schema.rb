@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729161929) do
+ActiveRecord::Schema.define(version: 20160730121752) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20160729161929) do
     t.string   "content"
     t.integer  "list_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "completed_at"
     t.index ["list_id"], name: "index_todo_items_on_list_id"
     t.index ["user_id"], name: "index_todo_items_on_user_id"
   end
