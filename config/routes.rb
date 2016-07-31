@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
 
   resources :users
-  resources :lists do
+  resources :lists, except:[:index, :new] do
     resources :todo_items do
       member do
         patch :complete

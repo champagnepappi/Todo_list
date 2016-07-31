@@ -1,0 +1,11 @@
+<li id="list-<%= list.id %>">
+    <span class="user"><%= link_to list.user.name, list.user %></span>
+    <span class="title"><%= link_to list.title, list %></span>
+    <span class="description"><%= list.description %></span>
+    <span class="timestamp">
+        Created at <%= time_ago_in_words(list.created_at) %> ago.
+        <% if current_user?(list.user) %>
+            <%= link_to "delete", list, method: :delete, data: { confirm: "You sure?"  } %>
+        <% end %>
+    </span>
+</li>

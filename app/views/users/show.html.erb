@@ -1,1 +1,5 @@
 <%= @user.name %>
+<% if @user.lists.any? %>
+    <h3>Todo Lists (<%= @user.lists.count %>)</h3>
+    <%= render @lists %>
+    <% end %>

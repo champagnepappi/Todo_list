@@ -1,3 +1,14 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-Register here<%= link_to "sign up", new_user_path %>
+<% if logged_in? %>
+    <div class="row">
+        <div class= "medium-4 columns">
+            <%= render 'shared/list_form' %>
+        </div>
+        <div class="medium-8 columns">
+            <%= render 'shared/todo_list' %>
+        </div>
+    </div>
+<% else %>
+    <h1>StaticPages#home</h1>
+    <p>Find me in app/views/static_pages/home.html.erb</p>
+    Register here<%= link_to "sign up", new_user_path %>
+<% end %>
