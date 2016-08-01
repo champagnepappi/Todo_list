@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :lists, except:[:index, :new] do
     resources :todo_items do
       member do
-        patch :complete
+        patch :complete, :unmark
       end
     end
   end

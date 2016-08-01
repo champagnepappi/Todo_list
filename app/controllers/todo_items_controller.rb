@@ -15,6 +15,12 @@ class TodoItemsController < ApplicationController
     redirect_to @list
     flash[:notice] = "Item completed"
   end
+  def unmark
+    @todo_item = @list.todo_items.find(params[:id])
+    @todo_item.update_attribute(:completed_at, nil)
+    redirect_to @list
+    flash[:notice] = "Item unmark as completed"
+  end
 
   private
   def set_list

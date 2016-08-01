@@ -4,4 +4,7 @@ class TodoItem < ApplicationRecord
   def completed?
     !completed_at.nil?
   end
+  def unmark?
+    completed_at.nil?
+  end
 end
