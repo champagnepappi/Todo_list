@@ -38,4 +38,8 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:title, :description)
   end
+  def correct_user
+    @list = current_user.lists.find_by(id: params[:id])
+    redirect_to root_url if @list.nil?
+  end
 end

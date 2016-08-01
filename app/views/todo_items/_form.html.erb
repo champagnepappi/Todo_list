@@ -1,4 +1,7 @@
 <%= form_for([@list, @list.todo_items.build]) do |f| %>
-<%= f.text_field :content, placeholder: "New todo item" %>
-<%= f.submit "submit", class:"button" %>
+    <%= f.text_field :content, placeholder: "New todo item" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :list_id %>
+    <%= f.submit "submit", class:"button" %>
 <% end %>
+

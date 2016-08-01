@@ -5,13 +5,8 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     @list = lists(:one)
   end
 
-  test "should get index" do
-    get lists_url
-    assert_response :success
-  end
-
   test "should get new" do
-    get new_list_url
+    get :new
     assert_response :success
   end
 

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :lists
-  has_many :todo_items
+  has_many :todo_items, through: :lists
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
