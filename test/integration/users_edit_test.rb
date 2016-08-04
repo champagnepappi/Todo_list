@@ -16,9 +16,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'users/edit'
   end
   test "successful edit with friendly forwarding" do
-    get edit_user_path(@user)
     log_in_as(@user)
-    assert_redirected_to edit_user_path(@user)
+    get edit_user_path(@user)
     assert_template 'users/edit'
     name = "Musa Omondi"
     email = "musa@omondi.com"
@@ -27,6 +26,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                             password: "foobar",
                                             password_confirmation: "foobar" }}
     assert_not flash.empty?
+    # follow_redirect!
     assert_redirected_to @user
     @user.reload
     assert_equal @user.name, name

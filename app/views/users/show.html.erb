@@ -1,5 +1,14 @@
-<%= @user.name %>
-<% if @user.lists.any? %>
-    <h3>Todo Lists (<%= @user.lists.count %>)</h3>
-    <%= render @lists %>
-    <% end %>
+<div class="row">
+    <div class="medium-2 columns">
+        <%= @user.name %>
+    </div>
+    <div class="medium-8 columns medium-offset-0">
+        <% if @user.lists.any? %>
+            <h3>Todo Lists (<%= @user.lists.count %>)</h3>
+            <%= render @lists %>
+        <% end %>
+        <div class="callout">
+            <%= render 'shared/list_form' %>
+        </div>
+    </div>
+</div>
