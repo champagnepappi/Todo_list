@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
   def show
     @user=User.find_by(id: params[:id])
+    @list = List.new
     @lists= @user.lists
   end
   def edit
