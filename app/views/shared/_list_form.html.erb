@@ -5,6 +5,8 @@
         <div class="field">
             <%= f.text_field :title, placeholder: "Todo list title" %>
             <%= f.text_area :description, placeholder: "Add description..." %>
+            <%= f.check_box :status %>
+            <span>Private</span>
         </div>
         <%= f.submit "Create", class: "button" %>
     <% end %>
