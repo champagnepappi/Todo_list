@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :lists do
-    resources :todo_items do
-      member do
-        patch :complete, :unmark
+    resources :cards do
+      resources :todo_items do
+        member do
+          patch :complete, :unmark
+        end
       end
     end
   end
