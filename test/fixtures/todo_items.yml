@@ -2,10 +2,14 @@
 
 one:
   content: MyString
-  list: one
   user: one
+  list: one
+  card: one
+  status: false
 
 two:
   content: MyString
-  list: two
   user: two
+  list: two
+  card: two
+  status: false
