@@ -1,0 +1,15 @@
+<h4> <%= link_to card.description, card %> </h4>
+<ul id="items_<%= card.id %>">
+    <% card.todo_items.each do |item| %>
+        <%= render partial: "cards/todo_item", locals: {card: card, item: item} %>
+    <% end %>
+</ul>
+<%= form_for([card, card.todo_items.build], remote: true) do |f| %>
+    <div class="input-group">
+        <%= f.hidden_field :card_id %>
+        <%= f.text_field :content,  placeholder: "New todo item", class: 'input-group-field', id: dom_id(card) %>
+        <div class="input-group-button">
+            <%= f.submit 'Add', class: 'button' %>
+        </div>
+    </div>
+<% end %>

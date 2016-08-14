@@ -3,9 +3,7 @@
 one:
   description: MyText
   list: one
-  user: one
 
 two:
   description: MyText
   list: two
-  user: two

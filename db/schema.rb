@@ -10,27 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731092341) do
+ActiveRecord::Schema.define(version: 20160808200652) do
+
+  create_table "cards", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "list_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["list_id"], name: "index_cards_on_list_id"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string   "title"
-    t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id", "created_at"], name: "index_lists_on_user_id_and_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "todo_items", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "list_id"
-    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "card_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.datetime "completed_at"
-    t.index ["list_id"], name: "index_todo_items_on_list_id"
-    t.index ["user_id"], name: "index_todo_items_on_user_id"
+    t.index ["card_id"], name: "index_todo_items_on_card_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,13 +10,12 @@ class ListsTest < ActionDispatch::IntegrationTest
     get root_path
     #invalid submission
     assert_no_difference 'List.count' do
-      post lists_path, params: {list: {title:"", description: "this is all about project"}}
+      post lists_path, params: {list: {title:""}}
     end
     #valid submission
     title="Todo App"
-    description= "This is about this app"
     assert_difference 'List.count', 1 do
-      post lists_path, params: {list: {title: title, description: description}}
+      post lists_path, params: {list: {title: title}}
     end
     assert_redirected_to root_url
     follow_redirect!
@@ -41,7 +40,7 @@ class ListsTest < ActionDispatch::IntegrationTest
   end
   test "should update list" do
     log_in_as(@user)
-    patch list_url(@list), params: { list: { description: @list.description, title: @list.title } }
+    patch list_url(@list), params: { list: { title: @list.title } }
     assert_redirected_to list_path(@list)
   end
 end
