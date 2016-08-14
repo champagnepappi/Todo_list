@@ -1,14 +1,17 @@
-<p>
-  <strong>Title:</strong>
-  <%= @list.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @list.description %>
-</p>
-<%= render @list.todo_items %>
-<%= render 'todo_items/form' %>
+<% provide(:title, @list.title) %>
+<h1 align="center">
+    <strong>List Title:</strong>
+    <%= @list.title %>
+</h1>
+<%# <%= link_to "Add card", new_list_card_path %1> %>
+<div class="medium-8 columns medium-offset-2">
+    <div class="callout">
+        <ul id="cards_<%= @list.id %>">
+            <%= render @list.cards %>
+        </ul>
+    </div>
+</div>
+<%= render 'cards/form' %>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', current_user %>
