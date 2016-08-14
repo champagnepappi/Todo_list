@@ -1,0 +1,1 @@
+$("#delete").on 'click', '.destroy'
