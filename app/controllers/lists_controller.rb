@@ -4,6 +4,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @completed = true
   end
   def edit
     @list = List.find(params[:id])
