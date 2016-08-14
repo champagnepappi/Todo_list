@@ -1,7 +1,6 @@
 class TodoItem < ApplicationRecord
-  belongs_to :list
-  belongs_to :user
-  validates :content, presence: :true
+  belongs_to :card
+
   def completed?
     !completed_at.nil?
   end
