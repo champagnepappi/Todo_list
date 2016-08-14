@@ -1,17 +1,30 @@
 class CardsController < ApplicationController
-  before_action :set_list
+  def index
+    @cards = Card.all
+  end
   def create
-    @card = @list.cards.create(card_params)
-    redirect_to @list
+    # debugger
+    @card = Card.new(card_params)
+    if @card.save
+      respond_to do |format|
+        format.js {}
+      end
+    else
+      #render error
+    redirect_to @card
+    end
   end
   def show
     @card = Card.find(params[:id])
   end
-  private
-  def set_list
-    @list = List.find(params[:list_id])
+  def destroy
+    @card = Card.find(params[:id])
+    @card.destroy
+    redirect_to list_path
+    flash[:notice] = 'Card was successfully destroyed.'
   end
+  private
   def card_params
-    params[:card].permit(:description, :user_id, :list_id)
+    params[:card].permit(:description, :list_id)
   end
 end
