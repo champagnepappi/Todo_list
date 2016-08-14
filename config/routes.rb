@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
 
   resources :users
-  resources :lists do
-    resources :cards do
-      resources :todo_items do
-        member do
-          patch :complete, :unmark
-        end
+  resources :lists 
+  resources :cards do
+    resources :todo_items do
+      member do
+        patch :complete, :unmark
       end
     end
   end
