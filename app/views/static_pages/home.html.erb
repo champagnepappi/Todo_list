@@ -1,13 +1,14 @@
 <% provide(:title, "Home") %>
 <% if logged_in? %>
-    <div class="row">
-        <div class= "medium-4 columns">
-            <%= render 'shared/list_form' %>
+        <div class="medium-8 columns medium-offset-2">
+            <div class="callout">
+            <h2 align="center">My To Do's</h2>
+                <div class="callout "align="center">
+                <%= render 'shared/todo_list' %>
+                </div>
+                <%= render 'shared/list_form' %>
+            </div>
         </div>
-        <div class="medium-8 columns">
-            <%= render 'shared/todo_list' %>
-        </div>
-    </div>
 <% else %>
     <h1>StaticPages#home</h1>
     <p>Find me in app/views/static_pages/home.html.erb</p>
