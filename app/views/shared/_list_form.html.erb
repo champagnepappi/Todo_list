@@ -1,10 +1,11 @@
-<h4>New List</h4>
-<%= form_for(@list) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="input-group">
-        <%= f.text_field :title,  placeholder: "New todo tist title", class: 'input-group-field', id: dom_id(@list) %>
-        <div class="input-group-button">
-            <%= f.submit 'Create', class: 'button' %>
+<div class="callout">
+    <h4>New List</h4>
+    <%= form_for(@list) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="field">
+            <%= f.text_field :title, placeholder: "Todo list title" %>
+            <span>Private</span>
         </div>
-    </div>
-<% end %>
+        <%= f.submit "Create", class: "button" %>
+    <% end %>
+</div>

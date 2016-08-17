@@ -18,6 +18,10 @@ class TodoItemsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'TodoItem.count', 1 do
       post card_todo_items_path(@card), params: {todo_item: {content: "This is my todo" }}
     end
-
   end
+  # test "should mark todo_item as complete" do
+  #   log_in_as(@user)
+  #   get list_path(@list)
+  #   assert completed?
+  # end
 end
